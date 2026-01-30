@@ -1,31 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A.M.G Launcher</title>
-    
-        <meta http-equiv="Content-Security-Policy" content="frame-src https://amgflix.zero2wdavi.shop/ https://1466081531020841136.discordsays.com/ wss://1466081531020841136.discordsays.com/ https://gc.kis.v2.scr.kaspersky-labs.com wss://gc.kis.v2.scr.kaspersky-labs.com;">
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMG Flix — Manutenção</title>
 
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: red; }
-        iframe { width: 100%; height: 100%; border: none; }
-    </style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #1a0033, #05000a 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* glow background */
+body::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(120deg,
+    #00d2ff,
+    #7a00ff,
+    #ff2fd0,
+    #00d2ff);
+  animation: bgMove 20s linear infinite;
+  opacity: 0.25;
+  filter: blur(120px);
+}
+
+@keyframes bgMove {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.card {
+  position: relative;
+  width: min(900px, 92vw);
+  padding: 60px 50px;
+  border-radius: 28px;
+  background: rgba(10, 5, 25, 0.85);
+  backdrop-filter: blur(25px);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0 80px rgba(122,0,255,.35);
+}
+
+/* neon border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 30px;
+  background: linear-gradient(120deg,
+    #00e1ff,
+    #7a00ff,
+    #ff2fd0,
+    #00e1ff);
+  z-index: -1;
+  animation: neon 6s linear infinite;
+}
+
+@keyframes neon {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.logo {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.logo span {
+  color: #b066ff;
+}
+
+.play {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  margin-left: 6px;
+}
+
+.subtitle {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #7a9cff;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(122,156,255,.7); }
+  70% { box-shadow: 0 0 0 20px rgba(122,156,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(122,156,255,0); }
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+p {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.footer {
+  margin-top: 35px;
+  font-size: 13px;
+  opacity: 0.6;
+}
+</style>
 </head>
+
 <body>
-    <iframe src="https://amgflix.zero2wdavi.shop" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; clipboard-write"></iframe>
 
-    <script type="module">
-        import { DiscordSDK } from "https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@1.2.0/+esm";
-        
-        const discordSdk = new DiscordSDK("1466081531020841136");
+<div class="card">
 
-        async function setup() {
-            // Tenta avisar o Discord que estamos prontos
-            await discordSdk.ready();
-        }
-        setup();
-    </script>
+  <div class="logo">
+    A.M.G<span> Flix</span><span class="play"></span>
+  </div>
+
+  <div class="subtitle">
+    Seu mundo de histórias.
+  </div>
+
+  <div class="status">
+    <div class="dot"></div>
+    <h1>Servidor em manutenção</h1>
+  </div>
+
+  <p>
+    Nosso servidor está temporariamente offline.<br>
+    Estamos realizando ajustes para melhorar sua experiência.
+  </p>
+
+  <div class="footer">
+    Tente novamente em alguns minutos 🚀
+  </div>
+
+</div>
+
 </body>
 </html>
